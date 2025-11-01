@@ -5,7 +5,7 @@ type Props = {
 	children: ReactNode;
 	type?: string;
 };
-
+// This is something that I made it is not native to motion or react-router-dom I made this component and added motion.div
 const AnimatePageTransition = ({ children, type }: Props) => {
 	const [pageType, setPageType] = useState<string>(type?? "page");
 

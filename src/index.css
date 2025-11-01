@@ -3,71 +3,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
-a {
-	font-weight: 500;
-	color: #646cff;
-	text-decoration: inherit;
-}
-a:hover {
-	color: #535bf2;
-}
-
-body {
-	margin: 0;
-	display: flex;
-	min-width: 320px;
-	min-height: 100vh;
-}
-
-h1 {
-	font-size: 3.2em;
-	line-height: 1.1;
-}
-
-button {
-	border-radius: 8px;
-	border: 1px solid transparent;
-	padding: 0.6em 1.2em;
-	font-size: 1em;
-	font-weight: 500;
-	font-family: inherit;
-	background-color: #1a1a1a;
-	cursor: pointer;
-	transition: border-color 0.25s;
-}
-button:hover {
-	border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-	outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-	:root {
-		color: #213547;
-		background-color: #ffffff;
-	}
-	a:hover {
-		color: #747bff;
-	}
-	button {
-		background-color: #f9f9f9;
-	}
-}
 :root {
 	--background: oklch(1 0 0);
-	--foreground: oklch(0.2129 0.0207 245.8007);
+	--foreground: #181b21;
 	--card: oklch(0.9784 0.0011 197.1387);
-	--card-foreground: oklch(0.2129 0.0207 245.8007);
+	--card-foreground: #181b21;
 	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.2129 0.0207 245.8007);
+	--popover-foreground: #181b21;
 	--primary: oklch(0.6856 0.1756 246.7169);
 	--primary-foreground: oklch(1 0 0);
-	--secondary: oklch(0.2129 0.0207 245.8007);
+	--secondary: #181b21;
 	--secondary-foreground: oklch(1 0 0);
 	--muted: oklch(0.9222 0.0013 286.3737);
-	--muted-foreground: oklch(0.2129 0.0207 245.8007);
+	--muted-foreground: #181b21;
 	--accent: oklch(0.9375 0.0235 250.075);
 	--accent-foreground: oklch(0.6856 0.1756 246.7169);
 	--destructive: oklch(0.6339 0.2514 26.9454);
@@ -81,14 +29,14 @@ button:focus-visible {
 	--chart-4: oklch(0.7653 0.2132 149.5232);
 	--chart-5: oklch(0.6357 0.253 16.4256);
 	--sidebar: oklch(0.9784 0.0011 197.1387);
-	--sidebar-foreground: oklch(0.2129 0.0207 245.8007);
+	--sidebar-foreground: #181b21;
 	--sidebar-primary: oklch(0.6856 0.1756 246.7169);
 	--sidebar-primary-foreground: oklch(1 0 0);
 	--sidebar-accent: oklch(0.9375 0.0235 250.075);
 	--sidebar-accent-foreground: oklch(0.6856 0.1756 246.7169);
 	--sidebar-border: oklch(0.9262 0.0136 240.9625);
 	--sidebar-ring: oklch(0.6946 0.172 245.0991);
-	--font-sans: Roboto, ui-sans-serif, sans-serif, system-ui;
+	--font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
 	--font-serif: Roboto Serif, ui-serif, serif;
 	--font-mono: JetBrains Mono, ui-monospace, monospace;
 	--radius: 0.5rem;
@@ -125,7 +73,7 @@ button:focus-visible {
 	--primary: oklch(0.6832 0.1769 246.9929);
 	--primary-foreground: oklch(1 0 0);
 	--secondary: oklch(0.9617 0.0051 228.8188);
-	--secondary-foreground: oklch(0.2129 0.0207 245.8007);
+	--secondary-foreground: #181b21;
 	--muted: oklch(0.209 0 0);
 	--muted-foreground: oklch(0.5627 0.0118 248.0373);
 	--accent: oklch(0.2225 0.0534 244.3392);
@@ -148,7 +96,7 @@ button:focus-visible {
 	--sidebar-accent-foreground: oklch(0.6832 0.1769 246.9929);
 	--sidebar-border: oklch(0.3807 0.0299 239.3127);
 	--sidebar-ring: oklch(0.6946 0.172 245.0991);
-	--font-sans: Roboto, ui-sans-serif, sans-serif, system-ui;
+	--font-sans: Inter, ui-sans-serif, sans-serif, system-ui;
 	--font-serif: Roboto Serif, ui-serif, serif;
 	--font-mono: JetBrains Mono, ui-monospace, monospace;
 	--radius: 0.5rem;
@@ -226,11 +174,18 @@ button:focus-visible {
 	--shadow-2xl: var(--shadow-2xl);
 }
 
+@font-face {
+font-family: 'ThunderBold'; /* Name your font */
+src: url('/src/assets/Thunder-BoldLC-2.ttf') format('truetype'); /* Path to the .ttf file */
+}
 @layer base {
 	* {
 		@apply border-border outline-ring/50;
 	}
 	body {
 		@apply bg-background text-foreground;
+	}
+	.thunder-bold {
+		font-family: 'ThunderBold', sans-serif;
 	}
 }
