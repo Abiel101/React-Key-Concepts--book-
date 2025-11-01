@@ -1,10 +1,8 @@
-import { Link } from "react-router-dom";
 import AnimatePageTransition from "./Components/AnimatePageTransition.jsx";
-import { Button } from "./Components/ui/button.js";
-import { Card } from "./Components/ui/card.js";
 import { MessageSquareMore } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
+import AccordionChapters from "./Components/AccordionChapters.js";
 
 const pageText = {
 	heading: "React Key Concepts",
@@ -16,6 +14,23 @@ function App() {
 	function handleMessage() {
 		setMessage(!message);
 	}
+
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		setMessage(true);
+	// 	}, 1000);
+
+	// 	return () => clearTimeout(timer);
+	// }, []);
+
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 		setMessage(false);
+	// 	}, 8000);
+
+	// 	return () => clearTimeout(timer);
+	// });
+
 	return (
 		<AnimatePageTransition type="landingPage">
 			<div className="w-screen h-screen bg-primary flex flex-col items-center justify-center text-center text-foreground relative">
@@ -25,66 +40,87 @@ function App() {
 				<h2 className="text-2xl font-bold text-foreground/70 mb-4">
 					An in-depth guide to React's core features
 				</h2>
+
+				{/* Message animation */}
 				<motion.div
-					className="bg-background text-s rounded-full bottom-60 overflow-hidden absolute flex items-center justify-center cursor-pointer"
+					className="bg-background text-s rounded-full bottom-80 overflow-hidden flex items-center justify-center cursor-pointer absolute"
 					style={{
-						width: message ? "1000px" : "150px",
-						height: message ? "150px" : "150px",
-						margin: "0 auto",
+						width: message ? "1000px" : "100px",
+						height: message ? "100px" : "100px",
 					}}
 					animate={{
-						width: message ? "1000px" : "150px",
-						height: message ? "150px" : "150px",
+						width: message ? "1000px" : "100px",
+						height: message ? "100px" : "100px",
 					}}
-					transition={{ duration: 0.5, ease: "easeInOut" }}
+					transition={{ duration: 0.5, delay: 0.5, ease: "easeInOut" }}
 					onClick={handleMessage}
 				>
-					{message ? (
-						<motion.div
-							className="overflow-hidden px-20 py-10 text-left text-foreground"
-							initial={{ opacity: 0 }}
-							animate={{ opacity: 1 }}
-							exit={{ opacity: 0 }}
-							transition={{ duration: 1, delay: 0.5, ease: "linear" }}
-						>
-							<MessageSquareMore className="absolute bottom-26 left-13 opacity-80 scale-x-[-1]" />
-							<p>
-								This site is inspired by the book{" "}
-								<strong className="text-primary">
-									"React Key Concepts" by Maximillian Schwarezmuller
-								</strong>
-								. It serves as a companion to the book, providing interactive
-								examples and exercises to help reinforce the concepts covered in
-								each chapter.
-							</p>
-						</motion.div>
-					) : (
-						<motion.div className="bg-transparent border-0 relative flex items-center justify-center">
+					<AnimatePresence mode="wait">
+						{message ? (
 							<motion.div
-							className="bg-background border-0"
+								key="message"
+								className="overflow-hidden px-20 py-10 text-left text-foreground"
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
-								transition={{ duration: 1, delay: 0.5, ease: "linear" }}
+								transition={{ duration: 0.5, ease: "linear" }}
 							>
-								<MessageSquareMore className="bg-background scale-x-[-1]" />
+								<p>
+									This site is inspired by the book{" "}
+									<strong className="text-primary">
+										"React Key Concepts" by Maximillian Schwarezmuller
+									</strong>
+									. It serves as a companion to the book, providing interactive
+									examples and exercises to help reinforce the concepts covered
+									in each chapter.
+								</p>
 							</motion.div>
-						</motion.div>
-					)}
+						) : (
+							<motion.div className="bg-transparent border-0 relative flex items-center justify-center">
+								<motion.div
+									key="icon"
+									className="bg-background border-0"
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+									exit={{ opacity: 0 }}
+									transition={{ duration: 1, ease: "linear" }}
+								>
+									<MessageSquareMore className="bg-background scale-x-[-1] animate-caret-blink" />
+								</motion.div>
+							</motion.div>
+						)}
+					</AnimatePresence>
 				</motion.div>
+				<div>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						className="lucide lucide-arrow-down-icon lucide-arrow-down animate-bounce scale-400 absolute bottom-20 right-20 text-accent"
+					>
+						<path d="M12 5v14" />
+						<path d="m19 12-7 7-7-7" />
+					</svg>
+				</div>
 			</div>
 
 			{/* Link to Events Page */}
-			<div className="w-full h-screen text-6xl p-20 bg-[#181b21]">
-				<h2 className="text-4 thunder-bold text-secondary-foreground mb-4 text-[248px]">
-					EXPLORE ALL EXERCISES AND CHAPTERS
-				</h2>
-				<div>
-					{/* Make this area bigger so that it's like drop downs of the chapters with short summariez and then reach out to the author to maybe even just read over it if he likes it! */}
-					<Button asChild variant="outline">
-						<Link to="/events">OPEN CHAPTER</Link>
-					</Button>
+			<div className="w-full h-screen bg-[#181b21]">
+				<div className="p-20">
+					<div className="bg-background/10">
+					{/* TODO: Make backgroubnd animation on scroll. */}
+						<h2 className="thunder-bold text-secondary-foreground text-[240px] leading-50 relative bottom-10 right-5">
+							EXPLORE ALL EXERCISES AND CHAPTERS
+						</h2>
+					</div>
 				</div>
+				<AccordionChapters />
 			</div>
 		</AnimatePageTransition>
 	);
