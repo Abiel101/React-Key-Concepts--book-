@@ -19,7 +19,7 @@ function App() {
 		<AnimatePageTransition type="landingPage">
 			{/* =================================== HEADER ========================================= */}
 			<div className="w-full h-screen bg-primary flex flex-col items-center justify-center text-center text-foreground relative overflow-hidden">
-				<h1 className="text-[150px] text-shadow-lg leading-30 lg:leading-50 lg:text-[248px] thunder-bold font-black text-background z-10">
+				<h1 className="text-9xl md:text-[150px] text-shadow-lg leading-30 lg:leading-50 xl:text-[248px] thunder-bold font-black text-background z-10">
 					{pageText.heading.toUpperCase()}
 				</h1>
 				<h2 className="text-2xl font-bold text-foreground/70 mb-4 z-10">
@@ -27,7 +27,7 @@ function App() {
 				</h2>
 				{/* ============================== Message animation (turn into separate component) ============================= */}
 				<motion.div
-					className="max-w-150 lg:max-w-200 bg-background text-xs lg:text-sm font-light lg:font-normal rounded-full bottom-30 lg:bottom-90 overflow-hidden flex items-center justify-center cursor-pointer absolute z-10"
+					className="max-w-100 text-[10px] md:max-w-150 lg:max-w-200 bg-background md:text-xs lg:text-sm font-light lg:font-normal rounded-full overflow-hidden flex items-center justify-center cursor-pointer absolute z-10 bottom-40 sm:bottom-30"
 					style={{
 						width: message ? "1000px" : "100px",
 						height: message ? "100px" : "100px",
@@ -144,7 +144,7 @@ function App() {
 						stroke-width="2"
 						stroke-linecap="round"
 						stroke-linejoin="round"
-						className="lucide lucide-arrow-down-icon lucide-arrow-down animate-bounce scale-200 lg:scale-400 absolute bottom-15 lg:bottom-20 right-20 text-accent"
+						className="lucide lucide-arrow-down-icon lucide-arrow-down animate-bounce scale-200 lg:scale-400 absolute bottom-15 lg:bottom-20 right-56 sm:right-20 text-accent"
 					>
 						<path d="M12 5v14" />
 						<path d="m19 12-7 7-7-7" />
@@ -160,14 +160,14 @@ function App() {
 							initial={{ width: 0, overflow: "hidden", color: "none" }}
 							whileInView={{ width: "100%", color: "transparent" }}
 							transition={{ duration: 1, ease: "easeInOut" }}
-							className=" absolute bg-background/10 w-full h-90"
+							className=" absolute bg-background/10 w-full h-full md:h-90"
 						></motion.div>
 						{/* TODO: Make backgroubnd animation on scroll. */}
 						<motion.h2
 							initial={{ opacity: 0, bottom: -10 }}
 							whileInView={{ opacity: 1, bottom: 20 }}
 							transition={{ duration: 0.5, ease: "easeInOut" }}
-							className="thunder-bold text-secondary-foreground leading-30 text-[150px] lg:text-[240px] lg:leading-50 relative bottom-10 right-5"
+							className="thunder-bold text-secondary-foreground leading-30 text-9xl md:text-[150px] lg:text-[240px] lg:leading-50 relative bottom-10 right-15 md:right-5"
 						>
 							EXPLORE ALL EXERCISES AND CHAPTERS
 						</motion.h2>
