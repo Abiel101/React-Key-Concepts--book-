@@ -28,7 +28,7 @@ import { useEffect } from "react";
 
 function AnimatedRoutes() {
 	const location = useLocation();
-
+//TODO: Re do these routes so that it works better for routing to each chapter.
 	return (
 		<AnimatePresence mode="wait">
 			{/*Added framer motion to transition between pages, even though this is a simple animation it is still nice that I can do this now with react.*/}
