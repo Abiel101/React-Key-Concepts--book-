@@ -5,8 +5,8 @@ Buy the book here [Book](https://www.amazon.com/React-Key-Concepts-depth-feature
 
 <img title="site image" alt="site image" src="/src/assets/image.png">
 <div style="display: flex; gap: 10px">
-<img title="site image" alt="site image" src="/src/assets/chapters (1).png" height="200">
-<img title="site image" alt="site image" src="/src/assets/openChapter.png" height="200">
-<img title="site image" alt="site image" src="/src/assets/ChapterHeader.png" height="200">
-<img title="site image" alt="site image" src="/src/assets/LandingFooter.png" height="200">
+<img title="site image" alt="site image" src="/src/assets/chapters (1).png" height="250">
+<img title="site image" alt="site image" src="/src/assets/openChapter.png" height="250">
+<img title="site image" alt="site image" src="/src/assets/ChapterHeader.png" height="250">
+<img title="site image" alt="site image" src="/src/assets/LandingFooter.png" height="250">
 </div>
