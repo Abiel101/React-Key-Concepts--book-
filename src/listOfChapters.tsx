@@ -1,16 +1,22 @@
 // IMPORTS (ALL CHAPTER ACTIVITY CODE & EXAMPLE CODE)
 
-
 // INTERFACE
+interface Topics {
+	title: string;
+	text: string;
+}
+
 interface Chapter {
 	title: string;
 	subTitle: string;
 	summary: any;
 	chapter: number;
 	chapterLink: string;
-	status: string;
-	sampleCode: any;
-	images: [];
+	status: string;	images: [];
+	topics: Topics[];
+	bonus?: boolean;
+	bonusTip?: string;
+	chapterCode?: any;
 	/*
 	topics: [{title: string, text: any (because we might add custom code)}];
 	//Need to add a way to be able to add as many tabs as I need for creating better chapter organization.
@@ -22,6 +28,9 @@ interface Chapter {
 
 export const chapterData: Chapter[] = [
 	{
+		chapter: 0,
+		chapterLink: "/chapter-0",
+		status: "Working On", //This is temporary until i am able to complete the project and section for aeach topic.
 		title: "Getting Started",
 		subTitle: "How to Get Started Building React Apps",
 		summary: (
@@ -34,11 +43,33 @@ export const chapterData: Chapter[] = [
 				</strong>
 			</p>
 		),
-		chapter: 0,
-		chapterLink: "/chapter-0",
-		status: "Working On",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [
+			{
+				title: "Topic 1",
+				text: "This is the frist topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
+			},
+			{
+				title: "Topic 1",
+				text: "This is the frist topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
+			},
+		],
+		// Here is an exmaple of how I can make the code appear.
+		chapterCode: {
+			'/App.js': `
+import Button from "/Button.js"
+export default function App () {
+	return <div>
+	<h1>Hi I am Abiel</h1>
+	<Button/>
+	</div>
+};`,
+			'/Button.js': `export default function Button () {
+	return <button onClick={() => alert("BUTTON HAS BEEN CLICKED")}>Click Me</button>
+};`
+		},
+		bonus: true,
+		bonusTip: 'This is the bonus tips for this chapter lets add some Shadcn and other awesome things.',
 	},
 	{
 		title: "Chapter 1",
@@ -47,8 +78,8 @@ export const chapterData: Chapter[] = [
 		chapter: 1,
 		chapterLink: "/chapter-1",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 2",
@@ -57,8 +88,8 @@ export const chapterData: Chapter[] = [
 		chapter: 2,
 		chapterLink: "/chapter-2",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 3",
@@ -67,8 +98,8 @@ export const chapterData: Chapter[] = [
 		chapter: 3,
 		chapterLink: "/chapter-3",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 4",
@@ -78,8 +109,8 @@ export const chapterData: Chapter[] = [
 		chapter: 4,
 		chapterLink: "/chapter-4",
 		status: "Working On",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 5",
@@ -88,8 +119,8 @@ export const chapterData: Chapter[] = [
 		chapter: 5,
 		chapterLink: "/chapter-5",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 6",
@@ -98,8 +129,8 @@ export const chapterData: Chapter[] = [
 		chapter: 6,
 		chapterLink: "/chapter-6",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 7",
@@ -108,8 +139,8 @@ export const chapterData: Chapter[] = [
 		chapter: 7,
 		chapterLink: "/chapter-7",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 8",
@@ -118,8 +149,8 @@ export const chapterData: Chapter[] = [
 		chapter: 8,
 		chapterLink: "/chapter-8",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 9",
@@ -128,8 +159,8 @@ export const chapterData: Chapter[] = [
 		chapter: 9,
 		chapterLink: "/chapter-9",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 10",
@@ -138,8 +169,8 @@ export const chapterData: Chapter[] = [
 		chapter: 10,
 		chapterLink: "/chapter-10",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 11",
@@ -148,8 +179,8 @@ export const chapterData: Chapter[] = [
 		chapter: 11,
 		chapterLink: "/chapter-11",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 12",
@@ -158,8 +189,8 @@ export const chapterData: Chapter[] = [
 		chapter: 12,
 		chapterLink: "/chapter-12",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 13",
@@ -168,8 +199,8 @@ export const chapterData: Chapter[] = [
 		chapter: 13,
 		chapterLink: "/chapter-13",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 14",
@@ -178,8 +209,8 @@ export const chapterData: Chapter[] = [
 		chapter: 14,
 		chapterLink: "/chapter-14",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 15",
@@ -188,8 +219,8 @@ export const chapterData: Chapter[] = [
 		chapter: 15,
 		chapterLink: "/chapter-15",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 16",
@@ -198,8 +229,8 @@ export const chapterData: Chapter[] = [
 		chapter: 16,
 		chapterLink: "/chapter-16",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 17",
@@ -208,8 +239,8 @@ export const chapterData: Chapter[] = [
 		chapter: 17,
 		chapterLink: "/chapter-17",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 	{
 		title: "Chapter 18",
@@ -218,7 +249,7 @@ export const chapterData: Chapter[] = [
 		chapter: 18,
 		chapterLink: "/chapter-18",
 		status: "Pending",
-		sampleCode: <></>,
-		images:[]
+		images: [],
+		topics: [{ title: "", text: "" }],
 	},
 ];
