@@ -175,8 +175,8 @@
 }
 
 @font-face {
-font-family: 'ThunderBold'; /* Name your font */
-src: url('/src/assets/Thunder-BoldLC-2.ttf') format('truetype'); /* Path to the .ttf file */
+	font-family: "ThunderBold"; /* Name your font */
+	src: url("/src/assets/Thunder-BoldLC-2.ttf") format("truetype"); /* Path to the .ttf file */
 }
 @layer base {
 	* {
@@ -186,6 +186,6 @@ src: url('/src/assets/Thunder-BoldLC-2.ttf') format('truetype'); /* Path to the 
 		@apply bg-background text-foreground;
 	}
 	.thunder-bold {
-		font-family: 'ThunderBold', sans-serif;
+		font-family: "ThunderBold", sans-serif;
 	}
 }

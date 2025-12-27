@@ -9,9 +9,13 @@ import {
 	AccordionContent,
 	AccordionTrigger,
 } from "./ui/accordion";
-import { Sandpack } from "@codesandbox/sandpack-react";
+import {
+	Sandpack,
+	SandpackCodeViewer,
+	SandpackLayout,
+	SandpackProvider,
+} from "@codesandbox/sandpack-react";
 import { aquaBlue } from "@codesandbox/sandpack-themes";
-
 
 const ChapterPageTemplate = () => {
 	// find current chapter based on the URL
@@ -98,9 +102,23 @@ const ChapterPageTemplate = () => {
 											<h3 className="text-4xl thunder-bold mb-2 tracking-wide">
 												{topic.title}
 											</h3>
-											<p className="text-gray-600 dark:text-gray-400 leading-8">
+											<p className="text-gray-400 dark:text-gray-400 leading-8 mb-4">
 												{topic.text}
 											</p>
+											{topic.codeSnippet ? (
+												<SandpackProvider
+												// Error here is because the type is not static, that's okay look into solution later.
+													template='react'
+													files={{
+														"/App.js": topic.codeSnippet,
+													}}
+													theme={aquaBlue}
+												>
+													<SandpackLayout style={{position: 'relative', height: '100px'}}>
+														<SandpackCodeViewer showLineNumbers/>
+													</SandpackLayout>
+												</SandpackProvider>
+											) : null}
 										</div>
 									))}
 									{currentChapter.bonus && (

@@ -2,8 +2,10 @@
 
 // INTERFACE
 interface Topics {
-	title: string;
+	title?: string;
 	text: string;
+	codeSnippet?: string;
+	codeSnippetType?: string;
 }
 
 interface Chapter {
@@ -32,7 +34,7 @@ export const chapterData: Chapter[] = [
 		chapterLink: "/chapter-0",
 		status: "Working On", //This is temporary until i am able to complete the project and section for aeach topic.
 		title: "Getting Started",
-		subTitle: "How to Get Started Building React Apps",
+		subTitle: "How to Get Started Building React Apps",                     
 		summary: (
 			<p>
 				Here are steps to getting started building a React 19 Application. Here
@@ -50,8 +52,14 @@ export const chapterData: Chapter[] = [
 				text: "This is the frist topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
 			},
 			{
-				title: "Topic 1",
-				text: "This is the frist topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
+				title: "Topic 2",
+				text: "This is the second topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
+				codeSnippet: `<button onClick={() => alert("BUTTON HAS BEEN CLICKED")}>Click Me</button>`,
+				codeSnippetType: 'react',
+			},
+			{
+				title: "Topic 3",
+				text: "This is the third topic for this chapter the layout has been set but i am trying to test out if the will actually work of if this is not going to be good for what i am trying to make happen.",
 			},
 		],
 		// Here is an exmaple of how I can make the code appear.
